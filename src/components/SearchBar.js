@@ -13,6 +13,10 @@ class SearchBar extends React.Component {
 		this.setState({ term : event.target.value });
 	}
 
+	onSearchClick = () => {
+		this.props.onFormSubmit(this.state.term);
+	}
+
 	render(){
 		return (
 			<nav className="flex justify-between bg-near-black">
@@ -24,7 +28,11 @@ class SearchBar extends React.Component {
         			id="Search"
         			style={{width:"300px"}}
         		/>
-        		<div className="bg-dark-gray pa1 hover-bg-silver" style={{width:"35px", height:"33px"}}>
+        		<div 
+        			onClick={this.onSearchClick}
+        			className="bg-dark-gray pa1 hover-bg-silver" 
+        			style={{width:"35px", height:"33px"}}
+        		>
         			<img src={SearchIcon} alt="SearchIcon" />
         		</div>
 			  </div>
