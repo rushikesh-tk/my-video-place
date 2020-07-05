@@ -1,0 +1,9 @@
+.video-item{
+	display: flex !important;
+	cursor: pointer;
+	padding-bottom: 10px;
+}
+
+.video-item.item img{
+	max-width: 200px;
+}
