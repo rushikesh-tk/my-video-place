@@ -19,9 +19,9 @@ class SearchBar extends React.Component {
 
 	render(){
 		return (
-			<nav className="flex justify-between bg-near-black">
+			<nav className="flex justify-between bg-black-90">
 			  <div className="flex-grow pa3 flex items-center">
-			  	<label className="db fw6 lh-copy white f4 pr3" htmlFor="Search">Search</label>
+			  	<label className="db fw6 lh-copy hot-pink f4 pr3" htmlFor="Search">My Video Place</label>
         		<input
         			onChange={this.onInputChange}
         			className="pa2 input-reset ba bg-transparent hover-bg-black white w-100"
