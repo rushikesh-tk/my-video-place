@@ -1,9 +1,11 @@
 import React from 'react';
 import './VideoItem.css';
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
 	return (
-		<div className="item bg-near-black video-item">
+		<div 
+			onClick={() => onVideoSelect(video)}
+			className="item bg-near-black video-item">
 			<img className="ui image pl3" src={video.snippet.thumbnails.medium.url} alt=""/>
 			<div className="content pl3 flex flex-column">
 				<div className="header pb2"><h3 className="near-white">{video.snippet.title}</h3></div>
