@@ -15,12 +15,16 @@ class App extends React.Component {
 		};
 	}
 
+	componentDidMount(){
+		this.onTermSubmit('todays most viewed video');
+	}
+
 	onTermSubmit = (term) => {
 		if(term){
-		fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${term}&key=${KEY}`)
+		fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${term}&key=${KEY}`)
 		.then(res => res.json())
 		.then(data => {
-				this.setState({ videos : data.items })
+				this.setState({ videos : data.items, selectedVideo : data.items[0] })
 			})
 		.catch((error) => {
             	console.log("Error: " + error);
@@ -37,9 +41,9 @@ class App extends React.Component {
 	render(){
 		return (
 			<div>
-			<SearchBar onFormSubmit={this.onTermSubmit}/>
-			<VideoDetail video={this.state.selectedVideo}/>
-			<VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect}/>
+				<SearchBar onFormSubmit={this.onTermSubmit}/>
+				<VideoDetail video={this.state.selectedVideo} className="bg-near-black"/>
+				<VideoList videos={this.state.videos} onVideoSelect={this.onVideoSelect}/>
 			</div>
 		);
 	}
