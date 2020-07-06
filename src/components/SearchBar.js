@@ -26,12 +26,11 @@ class SearchBar extends React.Component {
         			onChange={this.onInputChange}
         			className="pa2 input-reset ba bg-transparent hover-bg-black white w-100"
         			id="Search"
-        			style={{width:"300px"}}
         		/>
         		<div 
         			onClick={this.onSearchClick}
-        			className="bg-dark-gray pa1 hover-bg-silver" 
-        			style={{width:"35px", height:"33px"}}
+        			className="bg-dark-gray pa1 hover-bg-silver flex " 
+        			style={{width:"50px", height:"33px"}}
         		>
         			<img src={SearchIcon} alt="SearchIcon" />
         		</div>

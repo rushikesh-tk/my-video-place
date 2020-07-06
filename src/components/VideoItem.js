@@ -11,8 +11,6 @@ const VideoItem = ({ video }) => {
 				<div className="light-silver">{video.snippet.channelTitle}</div>
 				<div className="silver">{video.snippet.publishTime}</div>
 			</div>
-				
-			
 		</div>
 	);
 }
