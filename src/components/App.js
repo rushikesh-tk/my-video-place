@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import KEY from '../keys/YoutubeAPI_Key';
-
+import M from 'materialize-css';
 class App extends React.Component {
 
 	constructor(props){
@@ -14,15 +14,21 @@ class App extends React.Component {
 	}
 
 	onTermSubmit = (term) => {
-		fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${term}&key=${KEY}`)
+		if(term){
+		fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${term}&key=${KEY}`)
 		.then(res => res.json())
 		.then(data => {
-			//this.setState({ videos : data.items })
-	 		console.log(data);
-		})
+				this.setState({ videos : data.items })
+			})
 		.catch((error) => {
-            console.log("Error: " + error);
-        })
+            	console.log("Error: " + error);
+        	})
+		}
+		else{
+			M.toast({ html: `<h3>Please Enter Search Query!</h3>`
+})
+		}
+		
 
 	}
 
